@@ -132,9 +132,7 @@ export function Navigation() {
               </Link>
             </div>
 
-
-
-            {/* Navigation Links - Centered */}
+            {/* Desktop Navigation Links - Centered */}
             <nav className="hidden md:flex items-center justify-center flex-1 px-4 md:px-8">
               <div className="flex items-center space-x-4 lg:space-x-8">
                 <div className="relative group">
@@ -184,24 +182,27 @@ export function Navigation() {
               </div>
             </nav>
 
-            {/* Mobile Navigation Links */}
-            <nav className="flex md:hidden items-center space-x-3">
-              <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
-                Twige Bibiliya
-              </Link>
-              <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
-                Indirimbo
-              </a>
-              <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
-                Ibitabo
-              </Link>
+            {/* Mobile Navigation Links - Centered */}
+            <nav className="flex md:hidden items-center justify-center flex-1">
+              <div className="flex items-center space-x-3">
+                <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                  Twige Bibiliya
+                </Link>
+                <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                  Indirimbo
+                </a>
+                <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                  Ibitabo
+                </Link>
+              </div>
             </nav>
 
-            <div className="hidden lg:flex items-center gap-4">
+            {/* Right Side - Theme Toggle & Mobile Menu */}
+            <div className="flex items-center gap-2">
               <button
                 aria-label="Toggle theme"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-full bg-secondary/20 hover:bg-secondary/30 text-foreground flex items-center justify-center transition-colors"
+                className="hidden lg:flex p-2 rounded-full bg-secondary/20 hover:bg-secondary/30 text-foreground flex items-center justify-center transition-colors"
               >
                 {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </button>
