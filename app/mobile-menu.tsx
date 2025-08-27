@@ -31,7 +31,28 @@ export function MobileMenu() {
           </div>
           <nav className="flex flex-col p-4 gap-4">
             <div className="flex flex-col gap-4">
-              {/* Navigation links removed - now in footer */}
+              {/* Main Navigation Links */}
+              <Link href="/twige-bibiliya" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                TWIGE BIBILIYA
+              </Link>
+              <Link href="/ijambo-ryumunsi" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                Ijambo ry'Umunsi
+              </Link>
+              <Link href="/umva-indirimbo" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                Umva Indirimbo
+              </Link>
+              <Link href="/ibitabo" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                Ibitabo
+              </Link>
+              <Link href="/videos" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                Videos
+              </Link>
+              <Link href="/about" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                Turi bande ?
+              </Link>
+              <Link href="/contact" onClick={handleClose} className="text-white hover:text-amber-400 transition">
+                Twandikire
+              </Link>
             </div>
           </nav>
           <div className="mt-auto p-4 flex flex-col gap-4">

@@ -222,7 +222,7 @@ export function Navigation() {
             </div>
 
             {/* Center - Navigation Links */}
-            <div className="hidden md:flex items-center gap-4 lg:gap-6 text-secondary-foreground text-xs md:text-sm">
+            <div className="flex items-center gap-2 md:gap-4 lg:gap-6 text-secondary-foreground text-xs md:text-sm">
               <Link href="/umva-indirimbo" className="hover:text-secondary-foreground/80 transition">
                 Umva Indirimbo
               </Link>
