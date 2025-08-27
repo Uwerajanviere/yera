@@ -1,12 +1,4 @@
 {
   "version": 2,
-  "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "devCommand": "npm run dev",
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  }
+  "framework": "nextjs"
 }
