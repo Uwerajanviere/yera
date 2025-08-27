@@ -1,30 +1,20 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyACxz-Up9eR1vwaTuA9PGvN0I0HLBwvrwA",
+  authDomain: "yera2-c7523.firebaseapp.com",
+  projectId: "yera2-c7523",
+  storageBucket: "yera2-c7523.firebasestorage.app",
+  messagingSenderId: "443004844191",
+  appId: "1:443004844191:web:81ab9edd7dd20d396acaaa",
+  databaseURL: "https://yera2-c7523-default-rtdb.firebaseio.com"
 };
-
-// Validate configuration
-const missingConfig = Object.entries(firebaseConfig)
-  .filter(([key, value]) => !value && key !== 'measurementId' && key !== 'messagingSenderId')
-  .map(([key]) => key);
-
-if (missingConfig.length > 0) {
-  console.error('Missing Firebase configuration:', missingConfig.join(', '));
-  console.error('Please check your environment variables');
-}
 
 // Initialize Firebase only if no apps exist
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
-export const db = getFirestore(app);
+export const db = getDatabase(app);
 export const auth = getAuth(app);
 export default app;
