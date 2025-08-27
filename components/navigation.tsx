@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { MobileMenu } from "@/app/mobile-menu"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { useTheme } from 'next-themes'
@@ -195,7 +194,7 @@ export function Navigation() {
               </Link>
             </nav>
 
-            {/* Right Side - Theme Toggle & Mobile Menu */}
+            {/* Right Side - Theme Toggle */}
             <div className="flex items-center gap-1 md:gap-2">
               <button
                 aria-label="Toggle theme"
@@ -204,7 +203,6 @@ export function Navigation() {
               >
                 {theme === 'dark' ? <Sun className="h-3 w-3 md:h-4 md:w-4" /> : <Moon className="h-3 w-3 md:h-4 md:w-4" />}
               </button>
-              <MobileMenu />
             </div>
           </div>
         </div>
