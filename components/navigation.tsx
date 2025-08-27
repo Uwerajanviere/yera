@@ -202,7 +202,7 @@ export function Navigation() {
               <button
                 aria-label="Toggle theme"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="hidden lg:flex p-2 rounded-full bg-secondary/20 hover:bg-secondary/30 text-foreground flex items-center justify-center transition-colors"
+                className="flex p-2 rounded-full bg-secondary/20 hover:bg-secondary/30 text-foreground items-center justify-center transition-colors"
               >
                 {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </button>
