@@ -133,7 +133,7 @@ export function Navigation() {
             </div>
 
             {/* Desktop Navigation Links - Centered */}
-            <nav className="hidden md:flex items-center justify-center flex-1 px-4 md:px-8">
+            <nav className="hidden lg:flex items-center justify-center flex-1 px-4 md:px-8">
               <div className="flex items-center space-x-4 lg:space-x-8">
                 <div className="relative group">
                   <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1 text-base">
@@ -183,7 +183,7 @@ export function Navigation() {
             </nav>
 
             {/* Mobile Navigation Links - Centered */}
-            <nav className="flex md:hidden items-center justify-center flex-1">
+            <nav className="flex lg:hidden items-center justify-center flex-1">
               <div className="flex items-center space-x-2">
                 <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
                   Twige Bibiliya
