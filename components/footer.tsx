@@ -45,33 +45,34 @@ export function Footer() {
 
 
 
-          <div className="flex justify-center gap-3 md:gap-4 mb-8 md:mb-10">
+          {/* Social Media Icons */}
+          <div className="flex justify-center items-center gap-4 md:gap-6 mb-8 md:mb-10">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-full p-2 md:p-3 hover:opacity-90 transition"
+              className="bg-white rounded-full p-3 md:p-4 hover:opacity-90 transition-all duration-200 hover:scale-110 flex items-center justify-center"
+              aria-label="Facebook"
             >
-              <Facebook className="h-5 w-5 md:h-6 md:w-6 text-orange-900" />
-              <span className="sr-only">Facebook</span>
+              <Facebook className="h-6 w-6 md:h-7 md:w-7 text-orange-900" />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-full p-2 md:p-3 hover:opacity-90 transition"
+              className="bg-white rounded-full p-3 md:p-4 hover:opacity-90 transition-all duration-200 hover:scale-110 flex items-center justify-center"
+              aria-label="Instagram"
             >
-              <Instagram className="h-5 w-5 md:h-6 md:w-6 text-orange-900" />
-              <span className="sr-only">Instagram</span>
+              <Instagram className="h-6 w-6 md:h-7 md:w-7 text-orange-900" />
             </a>
             <a
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white rounded-full p-2 md:p-3 hover:opacity-90 transition"
+              className="bg-white rounded-full p-3 md:p-4 hover:opacity-90 transition-all duration-200 hover:scale-110 flex items-center justify-center"
+              aria-label="YouTube"
             >
-              <Youtube className="h-5 w-5 md:h-6 md:w-6 text-orange-900" />
-              <span className="sr-only">YouTube</span>
+              <Youtube className="h-6 w-6 md:h-7 md:w-7 text-orange-900" />
             </a>
           </div>
 
