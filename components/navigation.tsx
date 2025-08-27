@@ -182,14 +182,14 @@ export function Navigation() {
             </nav>
 
             {/* Mobile Navigation Links - Same Line */}
-            <nav className="flex lg:hidden items-center space-x-1 md:space-x-2">
-              <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+            <nav className="flex lg:hidden items-end space-x-1 md:space-x-2">
+              <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs md:text-sm">
                 Twige Bibiliya
               </Link>
-              <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+              <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs md:text-sm">
                 Indirimbo
               </a>
-              <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+              <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs md:text-sm">
                 Ibitabo
               </Link>
             </nav>
