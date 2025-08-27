@@ -56,7 +56,7 @@ export default function AdminPage() {
       console.log('Response headers:', response.headers);
 
       if (!response.ok) {
-        let errorMessage = 'Failed to add sermon';
+        let errorMessage = 'Ntibyashoboye kongeramo ibiganiro';
         try {
           const errorData = await response.json();
           console.error('API Error:', errorData);
@@ -71,11 +71,11 @@ export default function AdminPage() {
 
       const result = await response.json();
       console.log('Success result:', result);
-      toast.success("Sermon video added successfully");
+      toast.success("Ibiganiro byongewe neza");
       reset();
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error(error instanceof Error ? error.message : "Failed to add sermon video");
+      toast.error(error instanceof Error ? error.message : "Ntibyashoboye kongeramo ibiganiro");
     } finally {
       setIsLoading(false);
     }
@@ -102,17 +102,17 @@ export default function AdminPage() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Admin Dashboard</h1>
       
-      <Tabs defaultValue="sermons" className="max-w-4xl">
+      <Tabs defaultValue="ibiganiro" className="max-w-4xl">
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="sermons">Sermon Videos</TabsTrigger>
+          <TabsTrigger value="ibiganiro">Ibiganiro</TabsTrigger>
           <TabsTrigger value="books">Books</TabsTrigger>
           <TabsTrigger value="daily-word">Ijambo ry'Umunsi</TabsTrigger>
           <TabsTrigger value="bible-study">Twige Bibiliya</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="sermons">
+        <TabsContent value="ibiganiro">
           <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-semibold mb-4">Add Sermon Video</h2>
+            <h2 className="text-xl font-semibold mb-4">Ongeraho Ibiganiro</h2>
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div>
@@ -164,7 +164,7 @@ export default function AdminPage() {
               </div>
 
               <Button type="submit" disabled={isLoading} className="w-full">
-                {isLoading ? "Adding..." : "Add Sermon Video"}
+                {isLoading ? "Ongeraho..." : "Ongeraho Ibiganiro"}
               </Button>
             </form>
           </div>

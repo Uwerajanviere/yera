@@ -5,7 +5,7 @@ export async function getYouTubeLinksByCategory(category: YouTubeLinkCategory): 
   try {
     const response = await fetch(`/api/sermons?category=${encodeURIComponent(category)}`);
     if (!response.ok) {
-      throw new Error('Failed to fetch sermons');
+      throw new Error('Ntibyashoboye kubona ibiganiro');
     }
     
     const sermons = await response.json();
@@ -39,7 +39,7 @@ export async function addYouTubeLink(link: Omit<YouTubeLink, 'id' | 'createdAt'>
     });
     
     if (!response.ok) {
-      throw new Error('Failed to add sermon');
+      throw new Error('Ntibyashoboye kongeramo ibiganiro');
     }
     
     return await response.json();

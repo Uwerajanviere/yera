@@ -69,7 +69,7 @@ export default function CollectionsPage() {
       </header>
 
       <div className="container mx-auto px-4 py-8 flex-1 z-10">
-        <h1 className="text-3xl font-bold text-center mb-8 text-white">Browse Sermons</h1>
+        <h1 className="text-3xl font-bold text-center mb-8 text-white">Reba Ibiganiro</h1>
 
         <div className="mb-8 max-w-md mx-auto">
           <Select 

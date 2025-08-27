@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Navigation } from "@/components/navigation";
-import { Loader2, Calendar, BookOpen, Heart } from "lucide-react";
+import { Loader2, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface DailyWord {
@@ -23,23 +23,12 @@ export default function IjamboRyumunsiPage() {
 
   const fetchDailyWord = async () => {
     try {
-      // Debug logging
-      const apiUrl = '/api/daily-word';
-      console.log('Fetching daily word from:', apiUrl);
-      console.log('Current window location:', window.location.href);
-      
-      const response = await fetch(apiUrl);
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+      const response = await fetch('/api/daily-word');
       
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error text:', errorText);
         throw new Error(`Failed to fetch daily word: ${response.status} ${response.statusText}`);
       }
       const data = await response.json();
-      console.log('Daily word data:', data);
       setDailyWord(data);
     } catch (err) {
       console.error('Error fetching daily word:', err);
@@ -76,7 +65,6 @@ export default function IjamboRyumunsiPage() {
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <div className="flex-1 flex items-center justify-center flex-col">
-          <BookOpen className="h-16 w-16 text-gray-400 mb-4" />
           <p className="text-gray-500 text-lg">Nta jambo ry'umunsi rihari ubu.</p>
         </div>
       </div>
@@ -87,30 +75,25 @@ export default function IjamboRyumunsiPage() {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-16">
+      {/* Header Section */}
+      <div className="bg-blue-600 text-white py-12">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-              <Heart className="h-12 w-12 text-white" />
-            </div>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Ijambo ry'Umunsi
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
-            Soma ijambo ry'Imana ryawe buri munsi kugira ngo wiyongere ubwoba bw'Imana
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto">
+            Soma ijambo ry'Imana ryawe buri munsi
           </p>
         </div>
       </div>
 
       {/* Daily Word Content */}
-      <main className="flex-1 container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Date Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="bg-blue-50 border border-blue-200 rounded-full px-6 py-3 flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-blue-600" />
+      <main className="flex-1 container mx-auto px-4 py-8">
+        <div className="max-w-3xl mx-auto">
+          {/* Date */}
+          <div className="flex justify-center mb-6">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-blue-600" />
               <span className="text-blue-800 font-medium">
                 {new Date(dailyWord.createdAt).toLocaleDateString('rw-RW', {
                   weekday: 'long',
@@ -122,71 +105,36 @@ export default function IjamboRyumunsiPage() {
             </div>
           </div>
 
-          {/* Main Content Card */}
-          <Card className="shadow-xl border-0 bg-white">
-            <CardContent className="p-8 md:p-12">
-              {/* Title */}
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8 leading-tight">
+          {/* Main Content */}
+          <Card className="shadow-lg">
+            <CardContent className="p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
                 {dailyWord.title}
               </h2>
 
-              {/* Decorative Divider */}
-              <div className="flex justify-center mb-8">
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
-              </div>
-
-              {/* Content */}
-              <div className="prose prose-lg prose-blue max-w-none">
+              <div className="prose prose-lg max-w-none">
                 <div 
-                  className="text-gray-700 leading-relaxed text-lg md:text-xl text-center whitespace-pre-wrap"
-                  style={{ lineHeight: '1.8' }}
+                  className="text-gray-700 leading-relaxed text-base md:text-lg"
+                  style={{ lineHeight: '1.7' }}
                 >
                   {dailyWord.content}
-                </div>
-              </div>
-
-              {/* Bottom Decoration */}
-              <div className="mt-12 pt-8 border-t border-gray-100">
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-2 text-blue-600">
-                    <Heart className="h-5 w-5" />
-                    <span className="text-sm font-medium">Imana ikugume</span>
-                    <Heart className="h-5 w-5" />
-                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Inspirational Quote Section */}
-          <div className="mt-12 text-center">
-            <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
-              <CardContent className="p-8">
-                <blockquote className="text-lg md:text-xl text-gray-700 italic">
+          {/* Bible Verse */}
+          <div className="mt-8 text-center">
+            <Card className="bg-gray-50">
+              <CardContent className="p-6">
+                <blockquote className="text-lg text-gray-700 italic">
                   "Ijambo ry'Imana ni itara ku maguru yanjye, n'urumuri ku nzira yanjye."
                 </blockquote>
-                <cite className="block mt-4 text-blue-600 font-medium">
-                  - Zaburi 119:105
+                <cite className="block mt-3 text-blue-600 font-medium">
+                  Zaburi 119:105
                 </cite>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-12 text-center">
-            <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Saba kandi utekereze
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Fata igihe cyo gutekereza ku jambo ry'uyu munsi. Saba Imana ikugire ubwoba bwayo mu mutima wawe.
-              </p>
-              <div className="flex justify-center">
-                <div className="bg-blue-600 text-white px-6 py-3 rounded-lg">
-                  <span className="font-medium">🙏 Igihe cyo gusaba</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </main>

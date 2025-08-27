@@ -23,10 +23,10 @@ export default function Home() {
         {/* Latest Bible Studies Section */}
         <LatestBibleStudiesSection />
 
-        {/* Sermons Section */}
-        <section id="latest-sermons" className="py-12 md:py-16 lg:py-24 bg-muted/30">
+        {/* Ibiganiro Section */}
+        <section id="latest-ibiganiro" className="py-12 md:py-16 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-center mb-8 md:mb-12">Latest Sermons</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-center mb-8 md:mb-12">Ibiganiro by'Umunsi</h2>
 
             <div className="max-w-6xl mx-auto">
               <VideoSection limit={4} />

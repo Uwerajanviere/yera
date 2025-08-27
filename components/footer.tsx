@@ -26,7 +26,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-8 md:mb-10 text-white text-sm md:text-base">
-            <Link href="/#latest-sermons" className="hover:underline">
+                          <Link href="/#latest-ibiganiro" className="hover:underline">
               WATCH
             </Link>
             <span className="hidden md:inline text-white/50">|</span>

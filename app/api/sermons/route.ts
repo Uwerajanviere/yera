@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const snapshot = await query.once('value');
     
     if (!snapshot.exists()) {
-      console.log('GET /api/sermons - No sermons found');
+              console.log('GET /api/sermons - No ibiganiro found');
       return NextResponse.json([]);
     }
 
@@ -29,12 +29,12 @@ export async function GET(request: NextRequest) {
       ...sermonsData[key]
     })).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
-    console.log(`GET /api/sermons - Found ${sermons.length} sermons`);
+            console.log(`GET /api/sermons - Found ${sermons.length} ibiganiro`);
     return NextResponse.json(sermons);
   } catch (error) {
     console.error('GET /api/sermons - Error:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch sermons' },
+              { error: 'Ntibyashoboye kubona ibiganiro' },
       { status: 500 }
     );
   }

@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
     console.log('Document added successfully with ID:', newSermonRef.key);
 
-    return NextResponse.json({ message: 'Sermon added successfully', id: newSermonRef.key }, { status: 200 });
+    return NextResponse.json({ message: 'Ibiganiro byongewe neza', id: newSermonRef.key }, { status: 200 });
 
   } catch (error) {
     console.error('Error adding sermon:', error);
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     }
     
     return NextResponse.json({ 
-      message: 'Error adding sermon', 
+      message: 'Ikibazo kongeramo ibiganiro', 
       error: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }
