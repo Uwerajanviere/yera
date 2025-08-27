@@ -136,13 +136,13 @@ export function Navigation() {
 
             {/* Navigation Links - Centered */}
             <nav className="hidden md:flex items-center justify-center flex-1 px-4 md:px-8">
-              <div className="flex items-center space-x-4 md:space-x-8">
+              <div className="flex items-center space-x-4 lg:space-x-8">
                 <div className="relative group">
-                  <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1">
+                  <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1 text-base">
                     Soma Bibiliya
                     <ChevronDown className="h-4 w-4" />
                   </button>
-                  <div className="absolute top-full left-0 mt-2 bg-popover backdrop-blur-sm border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48">
+                  <div className="absolute top-full left-0 mt-2 bg-popover backdrop-blur-sm border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48 z-50">
                     <div className="p-2">
                       <Link href="/twige-bibiliya" className="block px-3 py-2 text-popover-foreground hover:bg-accent rounded text-sm">
                         Twige Bibiliya
@@ -155,25 +155,25 @@ export function Navigation() {
                 </div>
 
                 <div className="relative group">
-                  <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1">
+                  <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1 text-base">
                     Indirimbo
                     <ChevronDown className="h-4 w-4" />
                   </button>
-                  <div className="absolute top-full left-0 mt-2 bg-popover backdrop-blur-sm border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48">
+                  <div className="absolute top-full left-0 mt-2 bg-popover backdrop-blur-sm border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48 z-50">
                     <div className="p-2">
-                      <Link href="/umva-indirimbo" className="block px-3 py-2 text-popover-foreground hover:bg-accent rounded text-sm">
+                      <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 text-popover-foreground hover:bg-accent rounded text-sm">
                         Umva Indirimbo
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
 
                 <div className="relative group">
-                  <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1">
+                  <button className="text-primary-foreground hover:text-primary-foreground/80 transition flex items-center gap-1 text-base">
                     Isomero
                     <ChevronDown className="h-4 w-4" />
                   </button>
-                  <div className="absolute top-full left-0 mt-2 bg-popover backdrop-blur-sm border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48">
+                  <div className="absolute top-full left-0 mt-2 bg-popover backdrop-blur-sm border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48 z-50">
                     <div className="p-2">
                       <Link href="/ibitabo" className="block px-3 py-2 text-popover-foreground hover:bg-accent rounded text-sm">
                         Ibitabo
@@ -181,9 +181,20 @@ export function Navigation() {
                     </div>
                   </div>
                 </div>
-
-
               </div>
+            </nav>
+
+            {/* Mobile Navigation Links */}
+            <nav className="flex md:hidden items-center space-x-3">
+              <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                Twige Bibiliya
+              </Link>
+              <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                Indirimbo
+              </a>
+              <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                Ibitabo
+              </Link>
             </nav>
 
             <div className="hidden lg:flex items-center gap-4">
@@ -223,9 +234,9 @@ export function Navigation() {
 
             {/* Center - Navigation Links */}
             <div className="flex items-center gap-2 md:gap-4 lg:gap-6 text-secondary-foreground text-xs md:text-sm">
-              <Link href="/umva-indirimbo" className="hover:text-secondary-foreground/80 transition">
+              <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary-foreground/80 transition">
                 Umva Indirimbo
-              </Link>
+              </a>
               <Link href="/ibitabo" className="hover:text-secondary-foreground/80 transition">
                 Ibitabo
               </Link>
