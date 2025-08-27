@@ -182,29 +182,27 @@ export function Navigation() {
               </div>
             </nav>
 
-            {/* Mobile Navigation Links - Centered */}
-            <nav className="flex lg:hidden items-center justify-center flex-1">
-              <div className="flex items-center space-x-2">
-                <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
-                  Twige Bibiliya
-                </Link>
-                <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
-                  Indirimbo
-                </a>
-                <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
-                  Ibitabo
-                </Link>
-              </div>
+            {/* Mobile Navigation Links - Same Line */}
+            <nav className="flex lg:hidden items-center space-x-1 md:space-x-2">
+              <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                Twige Bibiliya
+              </Link>
+              <a href="https://giramahoro.yera.rw/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                Indirimbo
+              </a>
+              <Link href="/ibitabo" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
+                Ibitabo
+              </Link>
             </nav>
 
             {/* Right Side - Theme Toggle & Mobile Menu */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <button
                 aria-label="Toggle theme"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="flex p-2 rounded-full bg-secondary/20 hover:bg-secondary/30 text-foreground items-center justify-center transition-colors"
+                className="flex p-1.5 md:p-2 rounded-full bg-secondary/20 hover:bg-secondary/30 text-foreground items-center justify-center transition-colors"
               >
-                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {theme === 'dark' ? <Sun className="h-3 w-3 md:h-4 md:w-4" /> : <Moon className="h-3 w-3 md:h-4 md:w-4" />}
               </button>
               <MobileMenu />
             </div>
@@ -259,3 +257,4 @@ export function Navigation() {
     </>
   )
 }
+
