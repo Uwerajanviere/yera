@@ -184,7 +184,7 @@ export function Navigation() {
 
             {/* Mobile Navigation Links - Centered */}
             <nav className="flex md:hidden items-center justify-center flex-1">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2">
                 <Link href="/twige-bibiliya" className="text-primary-foreground hover:text-primary-foreground/80 transition text-xs">
                   Twige Bibiliya
                 </Link>
