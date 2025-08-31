@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { RichTextEditor } from "@/components/ui/rich-text-editor";
+import { TitleInput } from "@/components/ui/title-input";
 import { toast } from "sonner";
 
 const bibleStudySchema = z.object({
   title: z.string().min(1, "Umutwe w'icyigisho ni ngombwa"),
+  titleColor: z.string().default("#000000"),
   imageUrl: z.string().url("Shyiramo URL y'ifoto nziza"),
   content: z.string().min(10, "Content y'icyigisho igomba kuba nibura inyuguti 10"),
 });
@@ -21,8 +23,13 @@ type BibleStudyFormData = z.infer<typeof bibleStudySchema>;
 
 export function BibleStudyUpload() {
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<BibleStudyFormData>({
+  const [titleColor, setTitleColor] = useState("#000000");
+  const { register, handleSubmit, reset, control, watch, setValue, formState: { errors } } = useForm<BibleStudyFormData>({
     resolver: zodResolver(bibleStudySchema),
+    defaultValues: {
+      title: "",
+      titleColor: "#000000"
+    }
   });
 
   const onSubmit = async (data: BibleStudyFormData) => {
@@ -72,11 +79,22 @@ export function BibleStudyUpload() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="title">Umutwe w'icyigisho</Label>
-            <Input
-              id="title"
-              placeholder="Andika umutwe w'icyigisho"
-              {...register("title")}
-              className={errors.title ? "border-red-500" : ""}
+            <Controller
+              name="title"
+              control={control}
+              render={({ field }) => (
+                <TitleInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  titleColor={titleColor}
+                  onTitleColorChange={(color) => {
+                    setTitleColor(color);
+                    setValue("titleColor", color);
+                  }}
+                  placeholder="Andika umutwe w'icyigisho"
+                  error={!!errors.title}
+                />
+              )}
             />
             {errors.title && (
               <p className="text-sm text-red-500">{errors.title.message}</p>
@@ -98,16 +116,25 @@ export function BibleStudyUpload() {
 
           <div className="space-y-2">
             <Label htmlFor="content">Content y'icyigisho</Label>
-            <Textarea
-              id="content"
-              placeholder="Andika content y'icyigisho hano..."
-              rows={12}
-              {...register("content")}
-              className={errors.content ? "border-red-500" : ""}
+            <Controller
+              name="content"
+              control={control}
+              render={({ field }) => (
+                <RichTextEditor
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder="Andika content y'icyigisho hano..."
+                  rows={12}
+                  className={errors.content ? "border-red-500" : ""}
+                />
+              )}
             />
             {errors.content && (
               <p className="text-sm text-red-500">{errors.content.message}</p>
             )}
+            <p className="text-xs text-gray-500">
+              Koresha ibintu byo guhindura inyandiko: <strong>B</strong> kugira ngo ubone inyandiko, <strong>T</strong> kugira ngo ubone inyandiko nini, <strong>🎨</strong> kugira ngo uhindure ibara ry'inyandiko.
+            </p>
           </div>
 
           <Button 

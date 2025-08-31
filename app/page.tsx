@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { VideoSection } from "@/components/video-section"
 import { DailyWordSection } from "@/components/daily-word-section"
+import { DailySongSection } from "@/components/daily-song-section"
 import { LatestBooksSection } from "@/components/latest-books-section"
 import { LatestBibleStudiesSection } from "@/components/latest-bible-studies-section"
 import Link from 'next/link'
@@ -13,9 +14,24 @@ export default function Home() {
       {/* Navigation */}
       <Navigation />
 
-      {/* Daily Word Hero Section */}
+      {/* Daily Word & Song Hero Section */}
       <main className="flex-1 flex flex-col pt-16 md:pt-20">
-        <DailyWordSection />
+        <section className="py-8 bg-gradient-to-r from-primary/10 to-primary/20">
+          <div className="container mx-auto px-4">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              {/* Daily Song Section */}
+              <div>
+                <DailySongSection />
+              </div>
+
+              {/* Daily Word Section */}
+              <div>
+                <DailyWordSection />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Latest Books Section */}
         <LatestBooksSection />
@@ -24,9 +40,9 @@ export default function Home() {
         <LatestBibleStudiesSection />
 
         {/* Ibiganiro Section */}
-        <section id="latest-ibiganiro" className="py-12 md:py-16 lg:py-24 bg-muted/30">
+        <section id="latest-ibiganiro" className="py-8 md:py-12 lg:py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-center mb-8 md:mb-12">Ibiganiro by'Umunsi</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-center mb-8 md:mb-12">Ibiganiro</h2>
 
             <div className="max-w-6xl mx-auto">
               <VideoSection limit={4} />

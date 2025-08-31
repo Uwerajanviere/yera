@@ -11,6 +11,7 @@ import { Loader2, BookOpen, Calendar } from "lucide-react";
 interface BibleStudy {
   id: string;
   title: string;
+  titleColor?: string;
   imageUrl: string;
   content: string;
   createdAt: string;
@@ -74,9 +75,6 @@ export default function TwigeBibiliyaPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Twige Bibiliya
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Soma amabwiriza n'amakuru y'ubwiyunge kugira ngo wiyongere ubumenyi bw'Inyandiko Ntagatifu
-          </p>
         </div>
 
         {bibleStudies.length === 0 ? (
@@ -100,12 +98,13 @@ export default function TwigeBibiliyaPage() {
                       />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-bold text-xl text-card-foreground line-clamp-2 group-hover:text-primary transition-colors mb-3">
-                        {study.title}
-                      </h3>
-                      <p className="text-muted-foreground line-clamp-3 mb-4">
-                        {study.content.substring(0, 150)}...
-                      </p>
+                                                <h3
+                            className="font-bold text-xl line-clamp-2 group-hover:text-primary transition-colors mb-3"
+                            style={{ color: study.titleColor || '#000000' }}
+                          >
+                            {study.title}
+                          </h3>
+
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4" />
                         {new Date(study.createdAt).toLocaleDateString('rw-RW', {

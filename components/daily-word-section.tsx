@@ -49,51 +49,32 @@ export function DailyWordSection() {
 
   if (loading) {
     return (
-      <section className="py-16 bg-gradient-to-r from-primary/10 to-primary/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="shadow-lg">
-              <CardContent className="p-8">
-                <div className="animate-pulse">
-                  <div className="h-6 bg-muted rounded mb-4"></div>
-                  <div className="h-4 bg-muted rounded mb-2"></div>
-                  <div className="h-4 bg-muted rounded mb-2"></div>
-                  <div className="h-4 bg-muted rounded w-3/4"></div>
-                </div>
-              </CardContent>
-            </Card>
+      <Card className="shadow-lg">
+        <CardContent className="p-8">
+          <div className="animate-pulse">
+            <div className="h-6 bg-muted rounded mb-4"></div>
+            <div className="h-4 bg-muted rounded mb-2"></div>
+            <div className="h-4 bg-muted rounded mb-2"></div>
+            <div className="h-4 bg-muted rounded w-3/4"></div>
           </div>
-        </div>
-      </section>
+        </CardContent>
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <section className="py-8 bg-gradient-to-r from-primary/10 to-primary/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-1">
-                Ijambo ry'Umunsi
-              </h2>
-              <p className="text-sm text-muted-foreground">Daily Word</p>
-            </div>
-            
-            <Card className="shadow-lg border bg-card/80 backdrop-blur-sm">
-              <CardContent className="p-8 text-center">
-                <p className="text-red-500 mb-4">{error}</p>
-                <button 
-                  onClick={fetchDailyWord}
-                  className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
-                >
-                  Retry
-                </button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <Card className="shadow-lg border bg-card/80 backdrop-blur-sm">
+        <CardContent className="p-8 text-center">
+          <p className="text-red-500 mb-4">{error}</p>
+          <button 
+            onClick={fetchDailyWord}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
+          >
+            Retry
+          </button>
+        </CardContent>
+      </Card>
     );
   }
 
@@ -102,42 +83,32 @@ export function DailyWordSection() {
   }
 
   return (
-    <section className="py-8 bg-gradient-to-r from-primary/10 to-primary/20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-1">
-              Ijambo ry'Umunsi
-            </h2>
-            <p className="text-sm text-muted-foreground">Daily Word</p>
-          </div>
-          
-          <Card className="shadow-lg border bg-card/80 backdrop-blur-sm">
-            <CardHeader className="text-center pb-3">
-              <CardTitle className="text-lg md:text-xl font-bold text-card-foreground flex items-center justify-center gap-2">
-                <Quote className="h-5 w-5 text-primary" />
-                {dailyWord.title}
-              </CardTitle>
-              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                <Calendar className="h-3 w-3" />
-                {new Date(dailyWord.createdAt).toLocaleDateString('rw-RW', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </div>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <div className="prose max-w-none text-center">
-                <blockquote className="text-base md:text-lg leading-relaxed text-card-foreground/90 italic border-l-4 border-primary pl-4 bg-primary/10 rounded-r-lg py-3">
-                  "{dailyWord.content}"
-                </blockquote>
-              </div>
-            </CardContent>
-          </Card>
+    <Card className="shadow-lg border bg-card/80 backdrop-blur-sm">
+      <CardHeader className="text-center pb-3">
+        <CardTitle 
+          className="text-lg md:text-xl font-bold text-card-foreground flex items-center justify-center gap-2"
+          style={{ color: dailyWord.titleColor || '#000000' }}
+        >
+          <Quote className="h-5 w-5 text-primary" />
+          {dailyWord.title}
+        </CardTitle>
+        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <Calendar className="h-3 w-3" />
+          {new Date(dailyWord.createdAt).toLocaleDateString('rw-RW', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
         </div>
-      </div>
-    </section>
+      </CardHeader>
+                                    <CardContent className="pt-0">
+                <div className="prose max-w-none text-center">
+                  <blockquote className="text-base md:text-lg leading-relaxed text-card-foreground/90 italic border-l-4 border-primary pl-4 bg-primary/10 rounded-r-lg py-3">
+                    "{dailyWord.content}"
+                  </blockquote>
+                </div>
+              </CardContent>
+    </Card>
   );
 }

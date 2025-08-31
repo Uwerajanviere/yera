@@ -11,6 +11,7 @@ import { Loader2 } from "lucide-react";
 interface Book {
   id: string;
   title: string;
+  titleColor?: string;
   imageUrl: string;
   content: string;
   createdAt: string;
@@ -74,9 +75,7 @@ export default function IbitaboPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Ibitabo
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Soma ibitabo byiza byerekeye ubwiyunge, kwizera, n'ubuzima bwiza
-          </p>
+
         </div>
 
         {books.length === 0 ? (
@@ -99,8 +98,11 @@ export default function IbitaboPage() {
                       />
                     </div>
                     <div className="p-3">
-                      <h3 className="font-semibold text-sm text-card-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                        {book.title}
+                      <h3 
+                        className="font-semibold text-sm line-clamp-2 group-hover:text-primary transition-colors"
+                        style={{ color: book.titleColor || 'hsl(var(--card-foreground))' }}
+                      >
+                        {book.title.replace(/<[^>]*>/g, '')}
                       </h3>
                       <p className="text-xs text-muted-foreground mt-1">
                         {new Date(book.createdAt).toLocaleDateString('rw-RW', {

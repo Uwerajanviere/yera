@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Navigation } from "@/components/navigation";
 import { Loader2, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { DailySongSection } from "@/components/daily-song-section";
 
 interface DailyWord {
   id: string;
@@ -79,17 +80,22 @@ export default function IjamboRyumunsiPage() {
       <div className="bg-blue-600 text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Ijambo ry'Umunsi
+            Ijambo ry'Umunsi & Indirimbo y'Umunsi
           </h1>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-            Soma ijambo ry'Imana ryawe buri munsi
-          </p>
+
         </div>
       </div>
 
-      {/* Daily Word Content */}
+      {/* Main Content */}
       <main className="flex-1 container mx-auto px-4 py-8">
-        <div className="max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {/* Daily Song Section */}
+          <div>
+            <DailySongSection />
+          </div>
+
+          {/* Daily Word Section */}
+          <div>
           {/* Date */}
           <div className="flex justify-center mb-6">
             <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 flex items-center gap-2">
@@ -137,7 +143,8 @@ export default function IjamboRyumunsiPage() {
             </Card>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
     </div>
   );
 }

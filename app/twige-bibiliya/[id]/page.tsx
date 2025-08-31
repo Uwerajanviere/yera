@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Navigation } from "@/components/navigation";
@@ -15,18 +16,21 @@ interface BibleStudy {
   createdAt: string;
 }
 
-export default function BibleStudyPage({ params }: { params: { id: string } }) {
+export default function BibleStudyPage() {
+  const params = useParams();
   const [study, setStudy] = useState<BibleStudy | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchBibleStudy();
-  }, []);
+    if (params.id) {
+      fetchBibleStudy(params.id as string);
+    }
+  }, [params.id]);
 
-  const fetchBibleStudy = async () => {
+  const fetchBibleStudy = async (id: string) => {
     try {
-      const response = await fetch(`/api/bible-study/${params.id}`);
+      const response = await fetch(`/api/bible-study/${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch bible study');
       }
@@ -117,15 +121,18 @@ export default function BibleStudyPage({ params }: { params: { id: string } }) {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 
+              className="text-3xl md:text-4xl font-bold mb-8 leading-tight"
+              style={{ color: study.titleColor || '#000000' }}
+            >
               {study.title}
             </h1>
 
             {/* Content */}
             <div className="prose prose-lg max-w-none">
-              <div 
-                className="text-gray-700 leading-relaxed whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{ __html: study.content.replace(/\n/g, '<br />') }}
+              <div
+                className="text-gray-700 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: study.content }}
               />
             </div>
           </div>

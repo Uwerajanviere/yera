@@ -4,7 +4,7 @@ import { db } from '@/firebase/firebaseAdmin';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { title, imageUrl, content, createdAt } = body;
+    const { title, titleColor, imageUrl, content, createdAt } = body;
 
     if (!title || !imageUrl || !content) {
       return NextResponse.json(
@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
     const newBibleStudyRef = bibleStudiesRef.push();
     await newBibleStudyRef.set({
       title,
+      titleColor: titleColor || '#000000',
       imageUrl,
       content,
       createdAt: createdAt || new Date().toISOString(),

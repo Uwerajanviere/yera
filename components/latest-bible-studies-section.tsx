@@ -10,6 +10,7 @@ import { Calendar, BookOpen, ArrowRight } from "lucide-react";
 interface BibleStudy {
   id: string;
   title: string;
+  titleColor?: string;
   imageUrl: string;
   content: string;
   createdAt: string;
@@ -40,7 +41,7 @@ export function LatestBibleStudiesSection() {
 
   if (loading) {
     return (
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-8 md:py-12 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             Twige Bibiliya
@@ -63,7 +64,7 @@ export function LatestBibleStudiesSection() {
 
   if (bibleStudies.length === 0) {
     return (
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-8 md:py-12 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             Twige Bibiliya
@@ -78,16 +79,14 @@ export function LatestBibleStudiesSection() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-8 md:py-12 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Twige Bibiliya
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Soma amabwiriza n'amakuru y'ubwiyunge kugira ngo wiyongere ubumenyi bw'Inyandiko Ntagatifu
-          </p>
+
         </div>
 
         {/* Bible Studies Grid */}
@@ -110,13 +109,14 @@ export function LatestBibleStudiesSection() {
 
                   {/* Study Content */}
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="font-bold text-xl text-card-foreground line-clamp-2 group-hover:text-primary transition-colors mb-3">
-                      {study.title}
+                    <h3 
+                      className="font-bold text-xl line-clamp-2 group-hover:text-primary transition-colors mb-3"
+                      style={{ color: study.titleColor || '#000000' }}
+                    >
+                      {study.title.replace(/<[^>]*>/g, '')}
                     </h3>
                     
-                    <p className="text-muted-foreground line-clamp-3 mb-4 flex-1">
-                      {study.content.substring(0, 120)}...
-                    </p>
+
                     
                     <div className="flex items-center justify-between mt-auto">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -149,7 +149,7 @@ export function LatestBibleStudiesSection() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg"
             >
               <BookOpen className="h-5 w-5 mr-2" />
-              Reba cyigisho cyose
+              Reba ibyigisho byose
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
           </Link>

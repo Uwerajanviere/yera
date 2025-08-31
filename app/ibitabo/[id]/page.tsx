@@ -80,7 +80,7 @@ export default function BookPage() {
     return content.split('\n').map((paragraph, index) => {
       if (paragraph.trim() === '') return null;
       return (
-        <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+        <p key={index} className="mb-4 text-white leading-relaxed">
           {paragraph.trim()}
         </p>
       );
@@ -123,11 +123,14 @@ export default function BookPage() {
 
             {/* Book Info */}
             <div className="lg:w-2/3">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+              <h1 
+                className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
+                style={{ color: book.titleColor || '#ffffff' }}
+              >
                 {book.title}
               </h1>
               
-              <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
+              <div className="flex items-center gap-4 text-sm text-white mb-6">
                 <span>
                   Cyanditswe: {new Date(book.createdAt).toLocaleDateString('rw-RW', {
                     year: 'numeric',
@@ -138,25 +141,26 @@ export default function BookPage() {
               </div>
 
               {/* Reading time estimate */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                <p className="text-blue-800 text-sm">
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
+                <p className="text-primary text-sm">
                   <strong>Igihe cyo gusoma:</strong> {Math.ceil(book.content.split(' ').length / 200)} iminota
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Book Content */}
-          <div className="prose prose-lg max-w-none">
-            <div className="text-lg leading-relaxed">
-              {formatContent(book.content)}
+                      {/* Book Content */}
+            <div className="prose prose-lg max-w-none">
+              <div
+                className="text-lg leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: book.content }}
+              />
             </div>
-          </div>
 
           {/* Back to Books Button */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="mt-12 pt-8 border-t border-border">
             <Link href="/ibitabo">
-              <Button className="bg-blue-600 hover:bg-blue-700">
+              <Button>
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Subira ku bitabo byose
               </Button>

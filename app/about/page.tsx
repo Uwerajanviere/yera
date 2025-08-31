@@ -17,47 +17,45 @@ export default function AboutPage() {
 
       <main className="flex-1 container mx-auto px-4 py-16 pt-28 relative z-10">
         <div className="max-w-3xl mx-auto bg-card/80 backdrop-blur-sm p-8 rounded-xl border border-border">
-          <h1 className="text-4xl font-bold text-card-foreground mb-8">About Preach</h1>
+          <h1 className="text-4xl font-bold text-card-foreground mb-8">About Yera</h1>
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <p className="text-card-foreground/90 text-lg mb-6">
-              Preach is dedicated to providing uplifting and inspiring sermon videos to listeners around the world. Our
-              mission is to create a space where people can connect with God through the preached word, regardless of where they
-              are.
+              Yera is a Christian ministry platform dedicated to spreading the Gospel and nurturing spiritual growth. Our
+              mission is to provide accessible, inspiring content that helps believers deepen their faith and connect with God's word.
             </p>
 
             <h2 className="text-2xl font-bold text-card-foreground mt-8 mb-4">Our Mission</h2>
             <p className="text-card-foreground/90 mb-6">
-              To provide high-quality sermon videos that inspire, uplift, and connect people with God. We believe in
-              the power of the preached word to transform lives and bring people closer to their faith.
+              To share the love of Christ through digital ministry, providing Bible studies, daily devotionals, worship songs, 
+              and spiritual resources that inspire and strengthen believers in their walk with God.
             </p>
 
             <h2 className="text-2xl font-bold text-card-foreground mt-8 mb-4">Our Story</h2>
             <p className="text-card-foreground/90 mb-6">
-              Founded in 2010, Preach began as a small project with a big vision: to make sermons accessible to
-              everyone, everywhere. What started as a simple streaming service has grown into a global community of
-              believers united by their love for God and His word.
+              Yera was born from a vision to create a comprehensive digital ministry platform that serves the global Christian community. 
+              We believe that technology can be a powerful tool for spreading God's word and building meaningful connections among believers.
             </p>
             <p className="text-card-foreground/90 mb-6">
-              Today, we offer a diverse range of sermon styles, from contemporary teachings to traditional messages,
-              and inspiring talks. Our platform serves listeners in over 150 countries, providing a
-              continuous stream of sermon videos 24/7.
+              Today, Yera offers a diverse range of spiritual content including Bible studies, daily words of encouragement, 
+              worship music, and inspirational messages. Our platform serves believers worldwide, providing 24/7 access to 
+              resources that nurture faith and spiritual growth.
             </p>
 
             <h2 className="text-2xl font-bold text-card-foreground mt-8 mb-4">Our Team</h2>
             <p className="text-card-foreground/90 mb-6">
-              Our dedicated team consists of preachers, theologians, and technical experts who are
-              passionate about creating the best sermon video experience possible. We work with talented speakers and
-              ministries from around the world to bring you fresh and inspiring content.
+              Our dedicated team consists of pastors, Bible teachers, worship leaders, and ministry professionals who are
+              passionate about serving God through digital ministry. We collaborate with gifted ministers and Christian content creators 
+              to bring you authentic, life-changing spiritual content.
             </p>
 
             <h2 className="text-2xl font-bold text-card-foreground mt-8 mb-4">Our Values</h2>
             <ul className="list-disc pl-6 text-card-foreground/90 mb-6 space-y-2">
-              <li>Excellence in preaching</li>
-              <li>Accessibility for all</li>
-              <li>Community and connection</li>
+              <li>Biblical truth and sound doctrine</li>
+              <li>Accessibility for all believers</li>
+              <li>Community and fellowship</li>
               <li>Innovation in ministry</li>
-              <li>Integrity in all we do</li>
+              <li>Integrity and authenticity</li>
             </ul>
 
             <div className="mt-10 flex justify-center">

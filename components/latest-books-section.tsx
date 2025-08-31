@@ -10,6 +10,7 @@ import { ArrowRight, Book } from "lucide-react";
 interface Book {
   id: string;
   title: string;
+  titleColor?: string;
   imageUrl: string;
   content: string;
   createdAt: string;
@@ -40,7 +41,7 @@ export function LatestBooksSection() {
 
   if (loading) {
     return (
-      <section className="py-16 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">Ibitabo</h2>
@@ -66,13 +67,10 @@ export function LatestBooksSection() {
   }
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-8 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-3">
-            <Book className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Ibitabo</h2>
-          </div>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ibitabo</h2>
           <Link href="/ibitabo">
             <Button variant="outline" className="flex items-center gap-2">
               Reba byose
@@ -96,8 +94,11 @@ export function LatestBooksSection() {
                     />
                   </div>
                   <div className="p-3">
-                    <h3 className="font-semibold text-sm text-card-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                      {book.title}
+                    <h3 
+                      className="font-semibold text-sm line-clamp-2 group-hover:text-primary transition-colors"
+                      style={{ color: book.titleColor || '#000000' }}
+                    >
+                      {book.title.replace(/<[^>]*>/g, '')}
                     </h3>
                     <p className="text-xs text-muted-foreground mt-1">
                       {new Date(book.createdAt).toLocaleDateString('rw-RW', {

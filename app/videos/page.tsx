@@ -14,7 +14,7 @@ export default function VideosPage() {
             Videos
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Reba amashusho yose y'amasomo n'amakuru y'ubwiyunge
+            Reba amashusho yose y'ibiganiro
           </p>
         </div>
 

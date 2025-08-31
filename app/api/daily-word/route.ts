@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     console.log('POST /api/daily-word - Request body:', body);
-    const { title, content, createdAt } = body;
+    const { title, titleColor, content, createdAt } = body;
 
     if (!title || !content) {
       console.log('POST /api/daily-word - Missing title or content');
@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
     const newDailyWordRef = dailyWordsRef.push();
     await newDailyWordRef.set({
       title,
+      titleColor: titleColor || '#000000',
       content,
       createdAt: createdAt || new Date().toISOString(),
     });

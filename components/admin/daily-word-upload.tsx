@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { TitleInput } from "@/components/ui/title-input";
 import { toast } from "sonner";
 
 const dailyWordSchema = z.object({
   title: z.string().min(1, "Title is required"),
+  titleColor: z.string().default("#000000"),
   content: z.string().min(10, "Content must be at least 10 characters long"),
 });
 
@@ -20,8 +22,13 @@ type DailyWordFormData = z.infer<typeof dailyWordSchema>;
 
 export function DailyWordUpload() {
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<DailyWordFormData>({
+  const [titleColor, setTitleColor] = useState("#000000");
+  const { register, handleSubmit, reset, control, setValue, formState: { errors } } = useForm<DailyWordFormData>({
     resolver: zodResolver(dailyWordSchema),
+    defaultValues: {
+      title: "",
+      titleColor: "#000000"
+    }
   });
 
   const onSubmit = async (data: DailyWordFormData) => {
@@ -82,11 +89,22 @@ export function DailyWordUpload() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="title">Title</Label>
-            <Input
-              id="title"
-              placeholder="Enter daily word title"
-              {...register("title")}
-              className={errors.title ? "border-red-500" : ""}
+            <Controller
+              name="title"
+              control={control}
+              render={({ field }) => (
+                <TitleInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  titleColor={titleColor}
+                  onTitleColorChange={(color) => {
+                    setTitleColor(color);
+                    setValue("titleColor", color);
+                  }}
+                  placeholder="Enter daily word title"
+                  error={!!errors.title}
+                />
+              )}
             />
             {errors.title && (
               <p className="text-sm text-red-500">{errors.title.message}</p>
