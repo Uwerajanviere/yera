@@ -237,9 +237,6 @@ export function Navigation() {
               <Link href="/ibitabo" className="hover:text-secondary-foreground/80 transition">
                 Ibitabo
               </Link>
-              <Link href="/videos" className="hover:text-secondary-foreground/80 transition">
-                Videos
-              </Link>
               <Link href="/about" className="hover:text-secondary-foreground/80 transition">
                 Turi bande ?
               </Link>

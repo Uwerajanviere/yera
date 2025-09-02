@@ -11,7 +11,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { YouTubeLinkCategory } from "@/lib/types";
 import { BooksUpload } from "@/components/admin/books-upload";
 import { DailyWordUpload } from "@/components/admin/daily-word-upload";
-import { DailySongUpload } from "@/components/admin/daily-song-upload";
 import { BibleStudyUpload } from "@/components/admin/bible-study-upload";
 import { toast } from "sonner";
 
@@ -104,11 +103,10 @@ export default function AdminPage() {
       <h1 className="text-3xl font-bold mb-8">Admin Dashboard</h1>
       
       <Tabs defaultValue="ibiganiro" className="max-w-4xl">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="ibiganiro">Ibiganiro</TabsTrigger>
           <TabsTrigger value="books">Books</TabsTrigger>
           <TabsTrigger value="daily-word">Ijambo ry'Umunsi</TabsTrigger>
-          <TabsTrigger value="daily-song">Indirimbo y'Umunsi</TabsTrigger>
           <TabsTrigger value="bible-study">Twige Bibiliya</TabsTrigger>
         </TabsList>
         
@@ -181,12 +179,6 @@ export default function AdminPage() {
         <TabsContent value="daily-word">
           <div className="bg-white rounded-lg shadow p-6">
             <DailyWordUpload />
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="daily-song">
-          <div className="bg-white rounded-lg shadow p-6">
-            <DailySongUpload />
           </div>
         </TabsContent>
         

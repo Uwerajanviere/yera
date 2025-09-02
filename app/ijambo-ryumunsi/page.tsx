@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Navigation } from "@/components/navigation";
 import { Loader2, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { DailySongSection } from "@/components/daily-song-section";
 
 interface DailyWord {
   id: string;
@@ -44,7 +43,7 @@ export default function IjamboRyumunsiPage() {
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <div className="flex-1 flex items-center justify-center">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+          <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
         </div>
       </div>
     );
@@ -77,29 +76,21 @@ export default function IjamboRyumunsiPage() {
       <Navigation />
       
       {/* Header Section */}
-      <div className="bg-blue-600 text-white py-12">
+      <div className="bg-blue-500 text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Ijambo ry'Umunsi & Indirimbo y'Umunsi
+            Ijambo ry'Umunsi
           </h1>
-
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Daily Word Content */}
       <main className="flex-1 container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {/* Daily Song Section */}
-          <div>
-            <DailySongSection />
-          </div>
-
-          {/* Daily Word Section */}
-          <div>
+        <div className="max-w-3xl mx-auto">
           {/* Date */}
           <div className="flex justify-center mb-6">
             <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-blue-600" />
+              <Calendar className="h-4 w-4 text-blue-500" />
               <span className="text-blue-800 font-medium">
                 {new Date(dailyWord.createdAt).toLocaleDateString('rw-RW', {
                   weekday: 'long',
@@ -136,15 +127,14 @@ export default function IjamboRyumunsiPage() {
                 <blockquote className="text-lg text-gray-700 italic">
                   "Ijambo ry'Imana ni itara ku maguru yanjye, n'urumuri ku nzira yanjye."
                 </blockquote>
-                <cite className="block mt-3 text-blue-600 font-medium">
+                <cite className="block mt-3 text-blue-500 font-medium">
                   Zaburi 119:105
                 </cite>
               </CardContent>
             </Card>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
     </div>
   );
 }
